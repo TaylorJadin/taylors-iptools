@@ -473,7 +473,7 @@ def ipinfo_lookup(ip):
 def cymru_query(payload):
     # type: (str) -> List[str]
     """Send a query to the Team Cymru WHOIS service and return its lines."""
-    with socket.create_connection(("whois.cymru.com", 43), timeout=5) as conn:
+    with socket.create_connection(("whois.cymru.com", 43), timeout=1) as conn:
         conn.sendall(payload.encode("ascii"))
         chunks = []  # type: List[bytes]
         while True:
